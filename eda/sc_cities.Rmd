@@ -1,0 +1,34 @@
+---
+title: "sc_cities"
+author: "Amy DiPierro"
+date: "1/29/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Libraries needed
+
+library(tidyverse)
+library(readr)
+
+# Get the file
+
+cities_in <- here::here("data/sc_cities.rds")
+
+# Read in the data
+
+cities <- read_rds(cities_in)
+```
+
+Determine which South Carolina city had the most evictions in 2016.
+
+```{r}
+cities %>% 
+  top_n(n = 1, wt = evictions)
+```
+
+North Charleston had the most evictions of any city in South Carolina.
