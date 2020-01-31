@@ -32,3 +32,6 @@ cities %>%
 ```
 
 North Charleston had the most evictions of any city in South Carolina.
+
+
+

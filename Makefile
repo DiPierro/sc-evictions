@@ -1,23 +1,24 @@
 # Search path
-VPATH =
+VPATH = data data-raw eda reports scripts
 
 # Processed data files
-DATA =
+DATA = README.md sc_cities.rds sc_cities_boundaries.rds sc_joined.rds
 
 # EDA studies
-EDA =
+EDA = README.md sc_cities.Rmd
 
 # Reports
-REPORTS =
+REPORTS = README.md
 
 # All targets
 all : $(DATA) $(EDA) $(REPORTS)
 
 # Data dependencies
 
+sc_joined.rds : sc_cities.rds sc_cities_boundaries.rds
 
 # EDA study and report dependencies
-
+sc_cities.Rmd : sc_cities.rds
 
 # Pattern rules
 %.rds : %.R

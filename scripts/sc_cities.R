@@ -13,7 +13,7 @@ library(readr)
 file_raw_in <- "https://eviction-lab-data-downloads.s3.amazonaws.com/SC/cities.csv"
 
 ## Raw output file
-file_raw_out <- here::here("data-raw/sc_cities.rds")
+file_raw_out <- here::here("data-raw/sc_cities.csv")
 
 ## Clean output file
 file_cleaned_out <- here::here("data/sc_cities.rds")
@@ -38,7 +38,7 @@ var_to_rename <- c(geoid = "GEOID")
 
 file_raw_in %>%
   read_csv() %>%
-  write_rds(file_raw_out)
+  write_csv(file_raw_out)
 
 file_raw_in %>%
   read_csv(col_types = vars) %>%

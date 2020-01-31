@@ -14,7 +14,7 @@ library(sf)
 file_raw_in <- "https://eviction-lab-data-downloads.s3.amazonaws.com/SC/cities.geojson"
 
 ## Raw output file
-file_raw_out <- here::here("data-raw/sc_cities_boundaries.rds")
+file_raw_out <- here::here("data-raw/sc_cities_boundaries.geojson")
 
 ## Clean output file
 file_cleaned_out <- here::here("data/sc_cities_boundaries.rds")
@@ -29,7 +29,7 @@ vars_to_rename <- c(geoid = "GEOID", city_name = "n", geometry = "geometry")
 
 file_raw_in %>%
   read_sf() %>%
-  write_rds(file_raw_out)
+  write_sf(file_raw_out)
 
 file_raw_in %>%
   read_sf() %>%
